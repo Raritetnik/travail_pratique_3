@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            position: absolute;
+            margin: 0 auto;
+            width: 200px;
+            top: 50%;
+            left: 43%;
+        }
+        .lien {
+            padding: 20px;
+            text-decoration: none;
+            background-color: black;
+            color: aliceblue;
+            transition: .6s;
+        }
+        .lien:hover {
+            background-color: orangered;
+            transition: 0.6;
+        }
+
+    </style>
 </head>
 <body>
-    <h1><a href="affichage.php">Voir tableau avec l'heure</a></h1>
+    <header>
+        <div>
+            <a class= "lien" href="affichage.php">Voir tableau avec l'heure</a>
+        </div>
+    </header>
 </body>
 </html>
