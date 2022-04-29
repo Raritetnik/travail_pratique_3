@@ -33,60 +33,45 @@
         }
        th {
             background-color: #fff;
-            
-            
+
+
         }
     </style>
 </head>
 <body>
- <?php
+    <?php
+    date_default_timezone_set('Canada/Eastern');
+
+    $today = date("Y-m-d H:i:s");
+    echo "<h4>Aujourd'hui: ".$today."</h4><br>";
+
+    $hour = intval(date("h"));
+    $min = intval(date("i"));
 
 
-date_default_timezone_set('Canada/Eastern');
-
-$today = date("Y-m-d H:i:s");
-echo "<h4>Aujourd'hui: ".$today."</h4><br>";
-
-$hour = intval(date("h"));
-$min = intval(date("i"));
-
-
-
-echo "<table border='1px' cellpadding = '2'>";
-
-
-
-
-for($i = 0; $i < 12; $i++)
-{
-    echo "<tr><th>".($i + 1);
-    for($j = 0; $j < 60; $j++)
-    {
-        
-        if(($i == ($hour - 1)) && ($j == ($min - 1)))
-        {
-            
-            echo "<td  align='middle' style='background-color: #fff'> X </td>";
-        }
-        else
-        {
-            echo "<td></td>";
-        }
-            
+    echo "<table border='1px' cellpadding = '2'>";
+    echo "<tr> <th></th>";
+    for($j = 0; $j < 60; $j++) {
+        echo "<th>$j</th>";
     }
-        echo "</th></tr>";
-        
-}
+    echo "</th>";
 
-
-
-
-
-
-
-
-
-
-?>
+    for($i = 1; $i <= 12; $i++)
+    {
+        echo "<tr><th>$i</th>";
+        for($j = 0; $j < 60; $j++)
+        {
+            if($i == $hour && $j == $min)
+            {
+                echo "<td  align='middle' style='background-color: #fff'> X </td>";
+            }
+            else
+            {
+                echo "<td></td>";
+            }
+        }
+            echo "</tr>";
+    }
+    ?>
 </body>
 </html>
