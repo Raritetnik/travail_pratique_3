@@ -18,35 +18,75 @@
         }
     </style>
     <title>Document</title>
+    <style>
+        table{
+            width:100%;
+            border-collapse:collapse;
+            text-align:center;
+            border:1px solid #00F;
+            font-size:12px;
+        }
+        td, tr {
+            width: 20px;
+            height: 20px;
+            background-color: #34cceb;
+        }
+       th {
+            background-color: #fff;
+            
+            
+        }
+    </style>
 </head>
 <body>
-    <?php
-        date_default_timezone_set('Canada/Eastern');
-        $date = date('m/d/Y H:i:s a', time());
-        echo "L'heure actuel: " . $date;
-        $heures = intval(date("h"));
-        $minutes = intval(date("i"));
-        $amPM = date('a');
+ <?php
 
-        echo "<h4>La couleur de la case correspont à la période du jour: AM -> <span class='am'>X</span> et PM -> <span class='pm'>X</span></h4>";
-        echo '<table border=1>';
-        for ($i=1; $i <= 12; $i++) {
-            echo '<tr>';
-            for($y=1; $y <= 60; $y++) {
-                if($y == $minutes && $i == $heures) {
-                    if($amPM == 'pm') {
-                        echo "<td class='pm'>X</td>";
-                    } else {
-                        echo "<td class='am'>X</td>";
-                    }
-                } else {
-                    echo "<td style='background-color: #ccc'></td>";
-                }
-            }
-            echo '</tr>';
+
+date_default_timezone_set('Canada/Eastern');
+
+$today = date("Y-m-d H:i:s");
+echo "<h4>Aujourd'hui: ".$today."</h4><br>";
+
+$hour = intval(date("h"));
+$min = intval(date("i"));
+
+
+
+echo "<table border='1px' cellpadding = '2'>";
+
+
+
+
+for($i = 0; $i < 12; $i++)
+{
+    echo "<tr><th>".($i + 1);
+    for($j = 0; $j < 60; $j++)
+    {
+        
+        if(($i == ($hour - 1)) && ($j == ($min - 1)))
+        {
+            
+            echo "<td  align='middle' style='background-color: #fff'> X </td>";
         }
-        echo '</table>';
+        else
+        {
+            echo "<td></td>";
+        }
+            
+    }
+        echo "</th></tr>";
+        
+}
 
-    ?>
+
+
+
+
+
+
+
+
+
+?>
 </body>
 </html>
