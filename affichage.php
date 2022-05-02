@@ -17,7 +17,7 @@
             background-color: #AD0014;
         }
     </style>
-    <title>Document</title>
+    <title>Traavail Practique 3 - Affichage</title>
     <style>
         table{
             width:100%;
@@ -52,14 +52,14 @@
     echo "<table border='1px' cellpadding = '2'>";
     echo "<tr> <th></th>";
     for($j = 0; $j < 60; $j++) {
-        echo "<th>$j</th>";
+        echo "<th>".($j + 1)."</th>";
     }
     echo "</th>";
 
     for($i = 1; $i <= 12; $i++)
     {
         echo "<tr><th>$i</th>";
-        for($j = 0; $j < 60; $j++)
+        for($j = 1; $j <= 60; $j++)
         {
             if($i == $hour && $j == $min)
             {
