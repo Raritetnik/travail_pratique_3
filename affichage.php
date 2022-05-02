@@ -4,23 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        td, td {
-            width: 15px;
-            height: 20px;
-            text-align: center;
-        }
-        .am {
-            background-color: #23AD23;
-        }
-        .pm {
-            background-color: #AD0014;
-        }
-    </style>
     <title>Traavail Practique 3 - Affichage</title>
-    <style>
+     <style>
         table{
-            width:100%;
+            max-width:100%;
             border-collapse:collapse;
             text-align:center;
             border:1px solid #00F;
@@ -33,9 +20,23 @@
         }
        th {
             background-color: #fff;
+            width: 20px;
+            height: 20px;
 
 
         }
+        @media all and (min-width: 1506px) {
+            table{
+                font-size: 16px; 
+            }
+            
+            td, tr, th{
+            width: 40px;
+            height: 40px;
+            }
+            
+        }
+            
     </style>
 </head>
 <body>
