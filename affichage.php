@@ -4,49 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        td, td {
-            width: 15px;
+    <title>Traavail Practique 3 - Affichage</title>
+     <style>
+        table{
+            max-width:100%;
+            border-collapse:collapse;
+            text-align:center;
+            border:1px solid #00F;
+            font-size:12px;
+        }
+        td, tr {
+            width: 20px;
             height: 20px;
-            text-align: center;
+            background-color: #34cceb;
         }
-        .am {
-            background-color: #23AD23;
+       th {
+            background-color: #fff;
+            width: 20px;
+            height: 20px;
+
+
         }
-        .pm {
-            background-color: #AD0014;
+        @media all and (min-width: 1506px) {
+            table{
+                font-size: 16px; 
+            }
+            
+            td, tr, th{
+            width: 40px;
+            height: 40px;
+            }
+            
         }
+            
     </style>
-    <title>Document</title>
 </head>
 <body>
     <?php
-        date_default_timezone_set('Canada/Eastern');
-        $date = date('m/d/Y H:i:s a', time());
-        echo "L'heure actuel: " . $date;
-        $heures = intval(date("h"));
-        $minutes = intval(date("i"));
-        $amPM = date('a');
+    date_default_timezone_set('Canada/Eastern');
 
-        echo "<h4>La couleur de la case correspont à la période du jour: AM -> <span class='am'>X</span> et PM -> <span class='pm'>X</span></h4>";
-        echo '<table border=1>';
-        for ($i=1; $i <= 12; $i++) {
-            echo '<tr>';
-            for($y=1; $y <= 60; $y++) {
-                if($y == $minutes && $i == $heures) {
-                    if($amPM == 'pm') {
-                        echo "<td class='pm'>X</td>";
-                    } else {
-                        echo "<td class='am'>X</td>";
-                    }
-                } else {
-                    echo "<td style='background-color: #ccc'></td>";
-                }
+    $today = date("Y-m-d H:i:s");
+    echo "<h4>Aujourd'hui: ".$today."</h4><br>";
+
+    $hour = intval(date("h"));
+    $min = intval(date("i"));
+
+
+    echo "<table border='1px' cellpadding = '2'>";
+    echo "<tr> <th></th>";
+    for($j = 0; $j < 60; $j++) {
+        echo "<th>$j</th>";
+    }
+    echo "</th>";
+
+    for($i = 1; $i <= 12; $i++)
+    {
+        echo "<tr><th>$i</th>";
+        for($j = 0; $j < 60; $j++)
+        {
+            if($i == $hour && $j == $min)
+            {
+                echo "<td  align='middle' style='background-color: #fff'> X </td>";
             }
-            echo '</tr>';
+            else
+            {
+                echo "<td></td>";
+            }
         }
-        echo '</table>';
-
+            echo "</tr>";
+    }
     ?>
 </body>
 </html>
