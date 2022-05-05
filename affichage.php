@@ -27,24 +27,22 @@
         }
         @media all and (min-width: 1506px) {
             table{
-                font-size: 16px; 
+                font-size: 16px;
             }
-            
+
             td, tr, th{
             width: 40px;
             height: 40px;
             }
-            
+
         }
-            
+
     </style>
 </head>
 <body>
     <?php
     date_default_timezone_set('Canada/Eastern');
 
-    $today = date("Y-m-d H:i:s");
-    echo "<h4>Aujourd'hui: ".$today."</h4><br>";
 
     $hour = intval(date("h"));
     $min = intval(date("i"));
